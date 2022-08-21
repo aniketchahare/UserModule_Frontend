@@ -1,0 +1,40 @@
+<ng-container>
+    <div class="header-div">
+        <h1 class="pageTitle">
+            Users List
+        </h1>
+        <button class="button" (click)="navToForm()">Add</button>
+    </div>
+    <div class="group">
+        <table>
+            <tr class="thead tr-border stickyHeader">
+                <th>Sr No.</th>
+                <th>First Name</th>
+                <th>Last Date</th>
+                <th>Email</th>
+                <th>Mobile</th>
+                <th style="text-align: center">Action</th>
+            </tr>
+            <tbody>
+                <tr *ngFor="let item of list; let i = index;">
+                    <td>{{i+1}}</td>
+                    <td>{{item?.firstName}}</td>
+                    <td>{{item?.lastName}}</td>
+                    <td>{{item?.emailId}}</td>
+                    <td>{{item?.mobile || '-'}}</td>
+                    <td>
+                        <div class="icon-div">
+                            <mat-icon class="edit-icon" (click)="update(item)">remove_red_eye</mat-icon>
+                            <mat-icon class="delete-icon" (click)="delete(item._id)">delete</mat-icon>
+                        </div>
+                    </td>
+                </tr>
+                <tr *ngIf="list.length == 0" class="noavailavedata-row">
+                    <td style="text-align: center;" colspan="6">
+                        No data available.
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</ng-container>

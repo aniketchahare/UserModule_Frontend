@@ -1,0 +1,117 @@
+p {
+    font-family: Lato;
+}
+
+h1 {
+    display: flex;
+    /* align-items: center; */
+    width: 100%;
+    justify-content: center;
+}
+#root {
+    padding: 30px;
+}
+
+.register-form {
+    max-width: 30%;
+    margin: auto;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    margin-top: -2%;
+}
+
+.inner-div {
+    padding: 2% 10% 4% 10%;
+    background-color: #e3e3e3;
+}
+
+.pageTitle {
+    font-weight: bold;
+    font-size: 2.2em;
+    margin: 0 0 0 2%;
+}
+
+.icon {
+    margin-right: 30%;
+    cursor: pointer;
+    position: absolute;
+}
+
+// avatar
+p {
+    font-family: Lato;
+}
+
+img {
+    height: 100%;
+    width: 100%;
+    border-radius: 50%;
+}
+.hoverable {
+    position: relative;
+    display: block;
+    cursor: pointer;
+    height: 200px;
+    width: 200px;
+    border: 5px solid #000;
+    border-radius: 50%;
+}
+.hoverable .hover-text {
+    position: absolute;
+    display: none;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 2;
+}
+.hoverable .background {
+    position: absolute;
+    display: none;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    background-color: rgba(255, 255, 255, 0.5);
+    pointer-events: none;
+    border-radius: 50%;
+    z-index: 1;
+}
+.hoverable:hover .hover-text {
+    display: block;
+}
+.hoverable:hover .background {
+    display: block;
+}
+
+#fileInput {
+    display: none;
+}
+
+.avatar {
+    left: 9em;
+}
+
+.alert-img {
+    display: flex;
+    place-content: center;
+}
+
+.alert-img {
+    color: #f65656;
+    transition: all 0.2s ease-in-out;
+    opacity: 0;
+    display: flex;
+    place-content: center;
+    height: 3%;
+}
+
+.visible {
+    opacity: 1;
+    transform: translateY(1.25rem);
+}
+
+.header {
+   display: flex;
+}

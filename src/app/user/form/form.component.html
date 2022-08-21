@@ -1,0 +1,64 @@
+<div class="register-form">
+    <div class="inner-div">
+        <div class="header">
+            <mat-icon class="icon" (click)="navToView()">keyboard_backspace</mat-icon>
+            <h1>{{btnText}} User</h1>
+        </div>
+        <label class="hoverable avatar" for="fileInput">
+            <img [src]="displayUrl ? displayUrl : 'https://www.w3schools.com/howto/img_avatar.png'" alt="img-avtar">
+            <div class="hover-text">Choose file</div>
+            <div class="background"></div>
+        </label>
+        <span class="alert-img" [class.visible]="isVisible">{{imgUpdatedRes != '' ? imgUpdatedRes: ''}}</span>
+        <br />
+        <input id="fileInput" type='file' (change)="onSelectFile($event)">
+        <form [formGroup]="form" (ngSubmit)="onSubmit()" id="form">
+            <div class="form-group">
+                <label>First Name</label>
+                <input type="text" formControlName="firstName" class="form-control"
+                    [ngClass]="{ 'is-invalid': submitted && f.firstName.errors }" />
+                <div *ngIf="submitted && f.firstName.errors" class="invalid-feedback">
+                    <div *ngIf="f.firstName.errors.required">First Name is required</div>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label>Last Name</label>
+                <input type="text" formControlName="lastName" class="form-control"
+                    [ngClass]="{ 'is-invalid': submitted && f.lastName.errors }" />
+                <div *ngIf="submitted && f.lastName.errors" class="invalid-feedback">
+                    <div *ngIf="f.lastName.errors.required">Last Name is required</div>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label>Email</label>
+                <input type="text" formControlName="email" class="form-control"
+                    [ngClass]="{ 'is-invalid': submitted && f.email.errors }" />
+                <div *ngIf="submitted && f.email.errors" class="invalid-feedback">
+                    <div *ngIf="f.email.errors.required">Email is required</div>
+                    <div *ngIf="f.email.errors.email">Email is invalid</div>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label>Mobile</label>
+                <input type="tel" min=10 max=10 formControlName="mobile" class="form-control"
+                    [ngClass]="{ 'is-invalid': submitted && f.mobile.errors }" />
+                <div *ngIf="submitted && f.mobile.errors" class="invalid-feedback">
+                    <div *ngIf="f.mobile.errors.required">Mobile is required</div>
+                    <div *ngIf="f.mobile.errors.minlength && f.mobile.errors.maxlength">
+                        Mobile must be of 10 digits
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <button type="submit" class="btn btn-primary">{{btnText}}</button>
+                <button type="button" (click)="onReset()" class="btn btn-warning float-right">
+                    Clear
+                </button>
+            </div>
+        </form>
+    </div>
+</div>
